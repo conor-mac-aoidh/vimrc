@@ -1,3 +1,5 @@
+This is a fork of: [https://github.com/amix/vimrc.git](https://github.com/amix/vimrc.git)
+
 # The Ultimate vimrc
 
 Over the last 8 years I have used and tweaked Vim. This is my Ultimate vimrc.
