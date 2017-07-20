@@ -25,7 +25,7 @@ au FileType python set indentkeys-=0#
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
+"au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
@@ -45,6 +45,9 @@ function! JavaScriptFold()
     endfunction
     setl foldtext=FoldText()
 endfunction
+
+" auto indent json on save
+":autocmd BufWritePre *.json execute '%!python -m json.tool' | w
 
 
 """"""""""""""""""""""""""""""

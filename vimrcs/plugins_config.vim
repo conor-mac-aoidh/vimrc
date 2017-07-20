@@ -39,14 +39,14 @@ nmap <c-P> <Plug>yankstack_substitute_newer_paste
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-"let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 0
 
 "let g:ctrlp_map = '<c-f>'
 "map <leader>j :CtrlP<cr>
 "map <c-b> :CtrlPBuffer<cr>
 
 "let g:ctrlp_max_height = 20
-"let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
 
 """"""""""""""""""""""""""""""
@@ -77,10 +77,16 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
+map <leader>n :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 
+" start when no files are specified
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" close vim when only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
@@ -206,10 +212,10 @@ let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on
 let g:deoplete#sources#tss#javascript_support = 1
 
 " neosnippet
-let g:neosnippet#snippets_directory='~/.vim_runtime/sources_non_forked/vim-angular2-snippets/snippets'
+"let g:neosnippet#snippets_directory='~/.vim_runtime/sources_non_forked/vim-angular2-snippets/snippets'
 "let g:neosnippet#enable_snipmate_compatibility = 1
-set completeopt+=preview
-let g:neosnippet#enable_preview=1
+"set completeopt+=preview
+"let g:neosnippet#enable_preview=1
 
 " I want to use my tab more smarter. If we are inside a completion menu jump
 " to the next item. Otherwise check if there is any snippet to expand, if yes
@@ -226,12 +232,12 @@ function! s:neosnippet_complete()
   endif
 endfunction
 
-imap <expr><TAB> <SID>neosnippet_complete()
+"imap <expr><TAB> <SID>neosnippet_complete()
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
 "
 " SuperTab like snippets behavior.
 " "imap <expr><TAB>
@@ -247,3 +253,8 @@ if has('conceal')
 endif
 
 set nofoldenable
+
+" gitgutter
+set updatetime=250
+let g:gitgutter_async=0
+let g:gitgutter_enabled=1
