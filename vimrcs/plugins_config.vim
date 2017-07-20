@@ -48,6 +48,18 @@ let g:ctrlp_working_path_mode = 0
 "let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
+""""""""""""""""""""""""""""""
+" => vim-search
+""""""""""""""""""""""""""""""
+
+hi ESearchMatch ctermfg=black ctermbg=white guifg=#000000 guibg=#E6E6FA
+let g:esearch = {
+  \ 'adapter':    'grep',
+  \ 'backend':    'nvim',
+  \ 'out':        'qflist',
+  \ 'batch_size': 1000,
+  \ 'use':        ['visual', 'hlsearch', 'last'],
+  \}
 
 """"""""""""""""""""""""""""""
 " => ZenCoding
