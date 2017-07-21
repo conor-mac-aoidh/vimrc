@@ -54,7 +54,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
 hi ESearchMatch ctermfg=black ctermbg=white guifg=#000000 guibg=#E6E6FA
 let g:esearch = {
-  \ 'adapter':    'grep',
+  \ 'adapter':    'git',
   \ 'backend':    'nvim',
   \ 'out':        'qflist',
   \ 'batch_size': 1000,
@@ -78,7 +78,7 @@ snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 """"""""""""""""""""""""""""""
 " => Vim grep
 """"""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
+let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated node_modules www dist .git'
 set grepprg=/bin/grep\ -nH
 
 
