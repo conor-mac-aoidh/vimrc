@@ -217,6 +217,15 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 " => deoplete autocomplete
 """""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " deoplete tern:
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
