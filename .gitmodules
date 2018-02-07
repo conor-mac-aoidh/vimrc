@@ -4,12 +4,15 @@
 [submodule "sources_non_forked/vim-esearch"]
 	path = sources_non_forked/vim-esearch
 	url = https://github.com/eugen0329/vim-esearch.git
-[submodule "sources_non_forked/deoplete"]
-	path = sources_non_forked/deoplete
-	url = https://github.com/Shougo/deoplete.nvim
+[submodule "sources_non_forked/deoplete.nvim"]
+	path = sources_non_forked/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "sources_non_forked/deoplete-ternjs"]
 	path = sources_non_forked/deoplete-ternjs
 	url = https://github.com/carlitux/deoplete-ternjs.git
+[submodule "sources_non_forked/deoplete-typescript"]
+	path = sources_non_forked/deoplete-typescript
+	url = https://github.com/faceleg/deoplete-typescript.git
 [submodule "sources_non_forked/vim-monokai"]
 	path = sources_non_forked/vim-monokai
 	url = https://github.com/sickill/vim-monokai.git
