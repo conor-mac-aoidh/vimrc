@@ -71,8 +71,8 @@ let g:user_zen_mode='a'
 """"""""""""""""""""""""""""""
 " => snipMate (beside <TAB> support <CTRL-j>)
 """"""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+"ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
+"snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -193,19 +193,21 @@ let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neomake makers
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! BufWritePost,BufEnter * Neomake
+"autocmd! BufWritePost,BufEnter * Neomake
 "let g:neomake_open_list = 2
-let g:neomake_warning_sign = {
-  \ 'text': 'W',
-  \ 'texthl': 'WarningMsg',
-  \ }
-let g:neomake_error_sign = {
-  \ 'text': 'E',
-  \ 'texthl': 'ErrorMsg',
-  \ }
-
-let g:neomake_typescript_enabled_makers = ['tslint']
-let g:neomake_typescript_tslint_args = ['%:p', '--format verbose', '-r', '/usr/local/lib/node_modules/tslint-jsdoc-rules/lib', '--experimentalDecorators', '--noEmit']
+"call neomake#configure#automake('nw', 750)
+"
+"let g:neomake_warning_sign = {
+"  \ 'text': 'W',
+"  \ 'texthl': 'WarningMsg',
+"  \ }
+"let g:neomake_error_sign = {
+"  \ 'text': 'E',
+"  \ 'texthl': 'ErrorMsg',
+"  \ }
+"
+"let g:neomake_typescript_enabled_makers = ['tslint']
+"let g:neomake_typescript_tslint_args = ['%:p', '--format verbose', '--experimentalDecorators', '--noEmit']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
@@ -219,9 +221,10 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 let g:deoplete#enable_at_startup = 1
 
 " Let <Tab> also do completion
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ deoplete#mappings#manual_complete()
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <silent><expr> <Tab>
+"\ pumvisible() ? "\<C-n>" :
+"\ deoplete#mappings#manual_complete()
 
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -265,7 +268,7 @@ let g:deoplete#sources#tss#javascript_support = 1
 " " \ pumvisible() ? "\<C-n>" :
 " " \ neosnippet#expandable_or_jumpable() ?
 " " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 "
 " For conceal markers.
