@@ -46,7 +46,7 @@ let g:ctrlp_working_path_mode = 0
 "map <c-b> :CtrlPBuffer<cr>
 
 "let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee\|coverage'
 
 """"""""""""""""""""""""""""""
 " => vim-search
@@ -160,54 +160,54 @@ let g:go_fmt_command = "goimports"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_style_error_symbol = 'x'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_warning_symbol = 'W'
-let g:syntastic_style_warning_symbol = 'w'
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-" Python
-let g:syntastic_python_checkers=['pyflakes']
-
-" Javascript
-let g:syntastic_javascript_checkers = ['eslint']
-
-" TypeScript
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_error_symbol = 'X'
+"let g:syntastic_style_error_symbol = 'x'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_warning_symbol = 'W'
+"let g:syntastic_style_warning_symbol = 'w'
+"let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+"
+"highlight link SyntasticErrorSign SignColumn
+"highlight link SyntasticWarningSign SignColumn
+"highlight link SyntasticStyleErrorSign SignColumn
+"highlight link SyntasticStyleWarningSign SignColumn
+"
+"" Python
+"let g:syntastic_python_checkers=['pyflakes']
+"
+"" Javascript
+"let g:syntastic_javascript_checkers = ['eslint']
+"
+"" TypeScript
+"let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neomake makers
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"autocmd! BufWritePost,BufEnter * Neomake
-"let g:neomake_open_list = 2
-"call neomake#configure#automake('nw', 750)
-"
-"let g:neomake_warning_sign = {
-"  \ 'text': 'W',
-"  \ 'texthl': 'WarningMsg',
-"  \ }
-"let g:neomake_error_sign = {
-"  \ 'text': 'E',
-"  \ 'texthl': 'ErrorMsg',
-"  \ }
-"
-"let g:neomake_typescript_enabled_makers = ['tslint']
-"let g:neomake_typescript_tslint_args = ['%:p', '--format verbose', '--experimentalDecorators', '--noEmit']
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_open_list = 2
+call neomake#configure#automake('nw', 750)
+
+let g:neomake_warning_sign = {
+  \ 'text': 'W',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': 'E',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+
+let g:neomake_typescript_enabled_makers = ['tslint', 'tsc']
+let g:neomake_typescript_tslint_args = ['%:p', '--noEmit']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
