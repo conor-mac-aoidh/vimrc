@@ -82,6 +82,12 @@ let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated node_modules www dist .git'
 set grepprg=/bin/grep\ -nH
 
 
+""""""""""""""""""""""""""""""
+" => tsuquyomi
+""""""""""""""""""""""""""""""
+map <c-i> :TsuImport<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
